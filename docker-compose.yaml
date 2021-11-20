@@ -137,6 +137,12 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     command: postgres -c config_file=/etc/postgresql/postgres.conf
+  supabase-mailhog:
+    container_name: supabase-mailhog
+    image: mailhog/mailhog:${SUPABASE_MAILHOG_VERSION}
+    ports:
+      - ${SMTP_PORT}:1025
+      - 8025:8025
 volumes:
   supabase-pg-data:
   supabase-storage-data:
