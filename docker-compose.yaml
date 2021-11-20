@@ -59,7 +59,7 @@ services:
       - supabase-pg
     restart: unless-stopped
     environment:
-      PGRST_DB_URI: postgres://postgres:${POSTGRES_PASSWORD}@supabase-pg:5432/postgres
+      PGRST_DB_URI: postgres://postgres:${POSTGRES_PASSWORD}@${SUPABASE_PG}:5432/postgres
       PGRST_DB_SCHEMA: public, storage
       PGRST_DB_ANON_ROLE: anon
       PGRST_JWT_SECRET: ${JWT_SECRET}
@@ -70,7 +70,7 @@ services:
       - supabase-pg
     restart: unless-stopped
     environment:
-      DB_HOST: supabase-pg
+      DB_HOST: ${SUPABASE_PG}
       DB_PORT: 5432
       DB_NAME: postgres
       DB_USER: postgres
