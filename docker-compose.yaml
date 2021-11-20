@@ -93,7 +93,7 @@ services:
     environment:
       ANON_KEY: ${ANON_KEY}
       SERVICE_KEY: ${SERVICE_KEY}
-      POSTGREST_URL: http://rest:3000
+      POSTGREST_URL: http://${SUPABASE_REST}:3000
       PGRST_JWT_SECRET: ${JWT_SECRET}
       DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@supabase-pg:5432/postgres
       PGOPTIONS: -c search_path=storage
